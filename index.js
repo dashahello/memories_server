@@ -6,11 +6,11 @@ import postRoutes from './routes/posts.js';
 
 const app = express();
 
-app.use('/posts', postRoutes);
-
 app.use(express.json({ limit: '30mb', extended: true }));
 app.use(express.urlencoded({ limit: '30 mb', extended: true }));
 app.use(cors());
+
+app.use('/posts', postRoutes);
 
 const CONNECTION_URL =
   'mongodb+srv://dasha:12345Test@local-library.3mybs.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
